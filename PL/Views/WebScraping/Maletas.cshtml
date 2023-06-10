@@ -1,0 +1,50 @@
+﻿@model ML.Producto
+@{
+    ViewBag.Title = "Maletas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Maletas</h2>
+    </div>
+    @if (Model.Productos != null)
+    {
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <td>Editar</td>
+                    <td>Imagen</td>
+                    <td>Nombre</td>
+                    <td>Precio</td>
+                    <td>Vendedor</td>
+                    <td>Agregar</td>
+                </tr>
+            </thead>
+            @foreach (ML.Producto producto in Model.Productos)
+            {
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>
+                            @if (producto.Imagen != null)
+                            {
+                                <img id="img" src="data:image/*;base64,@producto.Imagen" style="width:100px ; height:100px" />
+                            }
+                        </td>
+                        <td>@producto.Nombre</td>
+                        <td>@producto.Precio</td>
+                        <td>@producto.Vendedor</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    }
+    else
+    {
+
+    }
+</div>
+
